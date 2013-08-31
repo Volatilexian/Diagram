@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 
 class Link;
+class QSet;
 
 class Node : public QGraphicsItem
 {
@@ -21,7 +22,7 @@ public:
     void setOutlineColor(const QColor *color);
     QColor outlineColor() const;
     void setBackgroundColor(const QColor *color);
-    QColor backgroudnColor() const;
+    QColor backgroundColor() const;
 
     void addLink(Link *link);
     void removeLink(Link *link);

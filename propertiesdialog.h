@@ -5,6 +5,13 @@
 
 class Node;
 class QLabel;
+class QGroupBox;
+class QLineEdit;
+class QPushButton;
+class QSpinBox;
+class QHBoxLayout;
+class QVBoxLayout;
+class QGridLayout;
 
 class PropertiesDialog : public QDialog
 {
@@ -14,7 +21,7 @@ public:
     PropertiesDialog(Node *node, QWidget *parent = 0);
     
 private slots:
-    void buttonBoxAccepted();
+    void okButtonClicked();
     void textColorButtonClicked();
     void outlineColorButtonClicked();
     void backgroundColorButtonClicked();
@@ -27,6 +34,28 @@ private:
     QColor textColor;
     QColor outlineColor;
     QColor backgroundColor;
+
+    QGroupBox *position;
+    QGroupBox *attributes;
+    QLabel *xLabel;
+    QLabel *yLabel;
+    QSpinBox *xSpinBox;
+    QSpinBox *ySpinBox;
+    QLabel *textLabel;
+    QLabel *textColorLabel;
+    QLabel *outlineColorLabel;
+    QLabel *backgroundColorLabel;
+    QLineEdit *textEdit;
+    QPushButton *chooseTextColor;
+    QPushButton *chooseOutlineColor;
+    QPushButton *chooseBackgroundColor;
+    QPushButton *okButton;
+    QPushButton *cancenButton;
+
+    QHBoxLayout *positionLayout;
+    QGridLayout *attributesLayout;
+    QHBoxLayout *buttonsLayout;
+    QVBoxLayout *mainLayout;
 };
 
 #endif // PROPERTIESDIALOG_H

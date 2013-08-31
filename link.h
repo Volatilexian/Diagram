@@ -17,7 +17,7 @@ public:
     void setColor(const QColor &color);
     QColor color() const;
 
-    void trackNOdes();
+    void trackNodes();
 
 private:
     Node *myFromNode;
