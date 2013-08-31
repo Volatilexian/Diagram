@@ -22,5 +22,5 @@ public:
 private:
     Node *myFromNode;
     Node *myToNode;
-
+};
 #endif // LINK_H

@@ -3,9 +3,9 @@
 
 #include <QGraphicsItem>
 #include <QCoreApplication>
+#include <QSet>
 
 class Link;
-class QSet;
 
 class Node : public QGraphicsItem
 {
@@ -17,11 +17,11 @@ public:
 
     void setText(const QString &text);
     QString text() const;
-    void setTextColor(const QColor *color);
+    void setTextColor(const QColor &color);
     QColor textColor() const;
-    void setOutlineColor(const QColor *color);
+    void setOutlineColor(const QColor &color);
     QColor outlineColor() const;
-    void setBackgroundColor(const QColor *color);
+    void setBackgroundColor(const QColor &color);
     QColor backgroundColor() const;
 
     void addLink(Link *link);

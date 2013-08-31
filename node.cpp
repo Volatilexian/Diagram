@@ -68,13 +68,13 @@ void Node::removeLink(Link *link)
     myLinks.remove(link);
 }
 
-void Node::setBackgroundColor(const QColor *color)
+void Node::setBackgroundColor(const QColor &color)
 {
     myBackgroundColor = color;
     update();
 }
 
-void Node::setOutlineColor(const QColor *color)
+void Node::setOutlineColor(const QColor &color)
 {
     myOutlineColor = color;
     update();
@@ -87,7 +87,7 @@ void Node::setText(const QString &text)
     update();
 }
 
-void Node::setTextColor(const QColor *color)
+void Node::setTextColor(const QColor &color)
 {
     myTextColor = color;
     update();

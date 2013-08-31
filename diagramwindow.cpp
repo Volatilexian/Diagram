@@ -7,8 +7,7 @@
 #include "link.h"
 #include "propertiesdialog.h"
 
-DiagramWindow::DiagramWindow(QWidget *parent)
-    : QMainWindow(parent)
+DiagramWindow::DiagramWindow(QWidget *parent) : QMainWindow(parent)
 {
     scene = new QGraphicsScene(0, 0, 600, 500);
 
@@ -136,7 +135,7 @@ QPair<Node *, Node *> DiagramWindow::selectedNodePair() const
         Node *first = dynamic_cast<Node *>(items.first());
         Node *second = dynamic_cast<Node *>(items.last());
         if(first && second)
-            return QPair<Node *, NOde *>(first, second);
+            return QPair<Node *, Node *>(first, second);
     }
 
     return QPair<Node *, Node *>();
@@ -146,7 +145,7 @@ QPair<Node *, Node *> DiagramWindow::selectedNodePair() const
 void DiagramWindow::setupNode(Node *node)
 {
     node->setPos(QPoint(80 + (100 * (seqNumber % 5)),
-                        80 + (50 * ((seqNumber ? 5) % 7))));
+                        80 + (50 * ((seqNumber / 5) % 7))));
     scene->addItem(node);
     ++seqNumber;
 
@@ -194,7 +193,7 @@ void DiagramWindow::copy()
     QString str = QString("Node %1 %2 %3 %4")
             .arg(node->textColor().name())
             .arg(node->outlineColor().name())
-            .arg(node->backgroudnColor().name())
+            .arg(node->backgroundColor().name())
             .arg(node->text());
     QApplication::clipboard()->setText(str);
 }
