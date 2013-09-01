@@ -1,4 +1,5 @@
 #include <QPainter>
+#include <QGraphicsLineItem>
 
 #include "link.h"
 #include "node.h"
@@ -26,7 +27,7 @@ Link::~Link()
 
 QColor Link::color() const
 {
-    return pen.color();
+    return pen().color();
 }
 
 Node *Link::fromNode() const

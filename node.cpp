@@ -5,6 +5,8 @@
 #include <QInputDialog>
 #include <QGraphicsSceneMouseEvent>
 #include <QApplication>
+#include <QStyleOptionGraphicsItem>
+#include <QFontMetricsF>
 
 #include "node.h"
 #include "link.h"
@@ -48,7 +50,7 @@ QColor Node::outlineColor() const
 void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
 {
     QPen pen(myOutlineColor);
-    if(option.state & QStyle::State_Selected)
+    if(option->state & QStyle::State_Selected)
     {
         pen.setStyle(Qt::DotLine);
         pen.setWidth(2);
@@ -135,7 +137,7 @@ void Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 QRectF Node::outlineRect() const
 {
     const int padding = 8;
-    QFontMetricsF metrics = qApp->font();
+    QFontMetricsF metrics = qApp->fontMetrics();
     QRectF rect = metrics.boundingRect(myText);
     rect.adjust(-padding, -padding, +padding, +padding);
     rect.translate(-rect.center());

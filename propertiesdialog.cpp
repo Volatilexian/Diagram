@@ -12,7 +12,7 @@
 #include "propertiesdialog.h"
 #include "node.h"
 
-PropertiesDialog::PropertiesDialog(Node *node, QWidget *parent = 0) :
+PropertiesDialog::PropertiesDialog(Node *node, QWidget *parent) :
     QDialog(parent)
 {
     position = new QGroupBox(tr("Position"));
@@ -81,7 +81,7 @@ PropertiesDialog::PropertiesDialog(Node *node, QWidget *parent = 0) :
 }
 
 
-void PropertiesDialog::chooseColor(QLabel *label, QColor *color)
+void PropertiesDialog::updateColorLabel(QLabel *label, const QColor &color)
 {
     QPixmap pixmap(16, 16);
     pixmap.fill(color);
@@ -89,7 +89,7 @@ void PropertiesDialog::chooseColor(QLabel *label, QColor *color)
 }
 
 
-void PropertiesDialog::updateColorLabel(QLabel *label, const QColor &color)
+void PropertiesDialog::chooseColor(QLabel *label, QColor *color)
 {
     QColor newColor = QColorDialog::getColor(*color, this);
     if(newColor.isValid())
